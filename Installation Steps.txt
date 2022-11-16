@@ -15,6 +15,26 @@ Download WinRAR from this link “https://www.win-rar.com/download.html?&L=0” 
 (WinRAR 6.11 English 64 bit)
 
 Section-4: Installing Cassandra 3.11.13
+Visit to "https://cassandra.apache.org/_/download.html" and click on "3.11.13" icon. Next download page
+will get open "https://dlcdn.apache.org/cassandra/3.11.13/apache-cassandra-3.11.13-bin.tar.gz". Click
+on " https://dlcdn.apache.org/cassandra/3.11.13/apache-cassandra-3.11.13-bin.tar.gz" and download
+the tar file. Extract it in a suitable path and to the folder "apache-cassandra-3.11.13".
+Now log into the folder "apache-cassandra-3.11.13". Now create two folders - "data" and "cassandraLogs"
+under it. Copy the folder path up to "cassandraLogs". Now open the "conf" folder and open "logback.xml"
+in text editor and replace all occurrences of "${cassandra.logdir}" at line number 36 with the copied path
+using find and replace option. And change the "\" with "/".
+So initially: "<file>${cassandra.logdir}/system.log</file>"
+After replacement: "<file>E:/Arnab Docs/Cassandra/apache-cassandra-
+3.11.13/cassandraLogs/system.log</file>"
+In total 4 places this replacement will take place.
+Now save and close the file "logback.xml".
+Now create one Environment Variable "CASSANDRA_HOME" against the path
+"E:\Arnab Docs\Cassandra\apache-cassandra-3.11.13".
+At command prompt run and check the command "echo %CASSANDRA_HOME%".
+Add Cassandra bin path "E:\Arnab Docs\Cassandra\apache-cassandra-3.11.13\bin" with the user path
+variable.
+From the command prompt to check, run command "path".
+
 Section-5: Edit cqlsh.bat
 Section-6: Execute Cassandra
 Section-7: Execute cqlsh
