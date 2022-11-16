@@ -1,4 +1,5 @@
 Section-1: Installing Java 8
+----------------------------
 First Download Java 8 from the link: "https://www.oracle.com/in/java/technologies/javase/javase8-
 archive-downloads.html" and install it. (jdk-8u202-windows-x64.exe (211.58 MB))
 Create an environmental variable JAVA_HOME against path "C:\Program Files\Java\jre1.8.0_202".
@@ -6,15 +7,18 @@ To the user path variable add the path "C:\Program Files\Java\jdk1.8.0_202\bin" 
 From the command prompt to check, run two commands "java -version" and "echo %JAVA_HOME%".
 
 Section-2: Installing Python 2.7
+--------------------------------
 Download Python 2.7 from the link: "https://www.python.org/download/releases/2.7/" and install it.
 (Windows X86-64 MSI Installer (2.7.0) [1] (sig)). Edit path variable with ‘C:\Python27’ and at command prompt
 run “python --version” to check.
 
 Section-3: Installing WinRAR
+----------------------------
 Download WinRAR from this link “https://www.win-rar.com/download.html?&L=0” and install.
 (WinRAR 6.11 English 64 bit)
 
 Section-4: Installing Cassandra 3.11.13
+---------------------------------------
 Visit to "https://cassandra.apache.org/_/download.html" and click on "3.11.13" icon. Next download page
 will get open "https://dlcdn.apache.org/cassandra/3.11.13/apache-cassandra-3.11.13-bin.tar.gz". Click
 on " https://dlcdn.apache.org/cassandra/3.11.13/apache-cassandra-3.11.13-bin.tar.gz" and download
@@ -36,6 +40,14 @@ variable.
 From the command prompt to check, run command "path".
 
 Section-5: Edit cqlsh.bat
+-------------------------
+
 Section-6: Execute Cassandra
+----------------------------
+
 Section-7: Execute cqlsh
+------------------------
+
 Section-8: Eclipse download and install
+---------------------------------------
+
