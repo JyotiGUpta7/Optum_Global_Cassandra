@@ -78,12 +78,6 @@ describe keyspaces;
 
 use mykeyspace;
 
-create keyspace mykeyspace with replication = {'class':'SimpleStrategy','replication_factor':'1'};
-
-describe keyspaces;
-
-use mykeyspace;
-
 create table stu_data (roll int primary key, name text);
 
 describe stu_data;
