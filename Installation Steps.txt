@@ -61,3 +61,31 @@ To come out from Cassandra use “Ctrl-c” and to come out from cqlsh use comma
 Section-8: Eclipse download and install
 ---------------------------------------
 
+
+
+CQLSH Classwork
+---------------
+create keyspace mykeyspace with replication = {'class':'SimpleStrategy','replication_factor':'1'};
+
+describe keyspaces;
+
+use mykeyspace;
+
+create keyspace mykeyspace with replication = {'class':'SimpleStrategy','replication_factor':'1'};
+
+describe keyspaces;
+
+use mykeyspace;
+
+create table stu_data (roll int primary key, name text);
+
+describe stu_data;
+
+select * from stu_data;
+
+insert into stu_data(roll, name) values(101, 'Amit');
+insert into stu_data(roll, name) values(102, 'Bikas');
+insert into stu_data(roll, name) values(103, 'Mithun');
+insert into stu_data(roll, name) values(104, 'Titli');
+
+select * from stu_data;
