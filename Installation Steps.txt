@@ -1,4 +1,11 @@
 Section-1: Installing Java 8
+First Download Java 8 from the link: "https://www.oracle.com/in/java/technologies/javase/javase8-
+archive-downloads.html" and install it. (jdk-8u202-windows-x64.exe (211.58 MB))
+Create an environmental variable JAVA_HOME against path "C:\Program Files\Java\jre1.8.0_202".
+To the user path variable add the path "C:\Program Files\Java\jdk1.8.0_202\bin" to it.
+From the command prompt to check, run two commands "java -version" and "echo %JAVA_HOME%".
+
+
 Section-2: Installing Python 2.7
 Section-3: Installing WinRAR
 Section-4: Installing Cassandra 3.11.13
