@@ -48,6 +48,7 @@ C:\Python27\python "%~dp0\cqlsh.py" %*
 
 Section-6: Execute Cassandra
 ----------------------------
+Now open command prompt (in administrator mode) and go to "E:\Arnab Docs\Cassandra\apachecassandra-3.11.13\bin" folder and issue command "cassandra.bat".
 
 Section-7: Execute cqlsh
 ------------------------
