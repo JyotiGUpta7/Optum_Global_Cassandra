@@ -5,8 +5,11 @@ Create an environmental variable JAVA_HOME against path "C:\Program Files\Java\j
 To the user path variable add the path "C:\Program Files\Java\jdk1.8.0_202\bin" to it.
 From the command prompt to check, run two commands "java -version" and "echo %JAVA_HOME%".
 
-
 Section-2: Installing Python 2.7
+Download Python 2.7 from the link: "https://www.python.org/download/releases/2.7/" and install it.
+(Windows X86-64 MSI Installer (2.7.0) [1] (sig)). Edit path variable with ‘C:\Python27’ and at command prompt
+run “python --version” to check.
+
 Section-3: Installing WinRAR
 Section-4: Installing Cassandra 3.11.13
 Section-5: Edit cqlsh.bat
