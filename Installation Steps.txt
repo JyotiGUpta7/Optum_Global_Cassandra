@@ -41,6 +41,10 @@ From the command prompt to check, run command "path".
 
 Section-5: Edit cqlsh.bat
 -------------------------
+Open the file 'cqlsh.bat' from the "E:\Arnab Docs\Cassandra\apache-cassandra-3.11.13\bin" folder and do
+the following edit by adding "C:\Python27\" in two places -
+C:\Python27\python -V >nul 2>&1
+C:\Python27\python "%~dp0\cqlsh.py" %*
 
 Section-6: Execute Cassandra
 ----------------------------
