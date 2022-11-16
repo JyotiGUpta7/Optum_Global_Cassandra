@@ -53,6 +53,10 @@ Now open command prompt (in administrator mode) and go to
 
 Section-7: Execute cqlsh
 ------------------------
+After Cassandra gets loaded in the memory open another command prompt and go to "E:\Arnab
+Docs\Cassandra\apache-cassandra-3.11.13\bin" folder and issue command "cqlsh.bat" and start working
+with CQL.
+To come out from Cassandra use “Ctrl-c” and to come out from cqlsh use command "quit".
 
 Section-8: Eclipse download and install
 ---------------------------------------
