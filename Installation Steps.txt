@@ -1,0 +1,8 @@
+Section-1: Installing Java 8
+Section-2: Installing Python 2.7
+Section-3: Installing WinRAR
+Section-4: Installing Cassandra 3.11.13
+Section-5: Edit cqlsh.bat
+Section-6: Execute Cassandra
+Section-7: Execute cqlsh
+Section-8: Eclipse download and install
