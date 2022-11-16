@@ -60,7 +60,14 @@ To come out from Cassandra use “Ctrl-c” and to come out from cqlsh use comma
 
 Section-8: Eclipse download and install
 ---------------------------------------
-
+Go to the URL: https://www.eclipse.org/downloads/
+Now click on the link “Download Packages”
+Now click on “Windows x86_64” link.
+Download the Eclipse zip file and unzip it and run eclipse.exe file.
+Create a shortcut of this application on the desktop.
+Eclipse should detect the pre-installed Java path. Otherwise go to the
+build path and provide the JRE path. Create “JavaWorkSpace”
+folder in a suitable path.
 
 
 CQLSH Classwork
