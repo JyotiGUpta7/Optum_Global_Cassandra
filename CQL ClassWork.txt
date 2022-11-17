@@ -131,15 +131,59 @@ select * from books_by_author where author_name = 'Tony';
 select * from books_by_author;
 
 
+------------- CQL Datatypes (Set) -------------
+// The set data type stores a collection of unique elements. The elements are unordered, but cqlsh returns
+// the elements in the sorted order
 
+alter table books_by_author add email set<text>;
 
+describe table books_by_author;
 
+select * from books_by_author;
 
+select author_name, publish_year, book_name, book_timeuuid, email, rating from books_by_author;
 
+update books_by_author set email = {'james_patter@gmail.com'} where author_name = 'James Patterson'
+ and publish_year = 2017
+ and book_id=e56030a7-cd66-4c38-b508-27a14b23b7e8;
 
+select author_name, publish_year, book_name, book_timeuuid, email, rating from books_by_author;
 
+update books_by_author set email = email + {'james_patterson123@gmail.com'}
+where author_name = 'James Patterson'
+and publish_year = 2017
+and book_id=e56030a7-cd66-4c38-b508-27a14b23b7e8;
 
+// we can also use this '+' for the first time when email set was empty
 
+select author_name, publish_year, book_name, book_timeuuid, email, rating from books_by_author;
+
+// if we execute the same update query again then there will be no change the email field as it contains
+// only unique values
+
+update books_by_author set email = email - {'james_patter@gmail.com'}
+where author_name = 'James Patterson'
+and publish_year = 2017
+and book_id=e56030a7-cd66-4c38-b508-27a14b23b7e8;
+// for eliminating the existing email id from the email attribute
+
+select author_name, publish_year, book_name, email, rating from books_by_author;
+
+update books_by_author set email = {}
+where author_name = 'James Patterson'
+and publish_year = 2017
+and book_id=e56030a7-cd66-4c38-b508-27a14b23b7e8;
+// eliminating all the email ids from the email attribute
+
+select author_name, publish_year, book_name, email, rating from books_by_author;
+
+update books_by_author set email = email + {'james_patter@gmail.com'}
+where author_name = 'James Patterson'
+and publish_year = 2017
+and book_id=e56030a7-cd66-4c38-b508-27a14b23b7e8;
+// adding new email id to the void email set
+
+select author_name, publish_year, book_name, email, rating from books_by_author;
 
 
 
