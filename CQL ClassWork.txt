@@ -22,6 +22,33 @@ desc keyspaces;
 use firstkeyspace;
 
 ------------- Create a Table -------------
+create table books_by_author (
+ author_name text,
+ publish_year int,
+ book_id uuid,
+ book_name text,
+ rating float,
+ primary key((author_name), publish_year, book_id)
+ ) with clustering order by (publish_year desc, book_id asc);
+
+-- uuid stands for "universally unique identifier"
+-- it is supposed to be unique even outside of the table
+
+describe books_by_author;
+desc books_by_author;
+
+
+------------- Inert Records -------------
+
+
+
+
+
+
+
+
+
+
 
 
 
