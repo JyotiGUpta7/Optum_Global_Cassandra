@@ -38,7 +38,7 @@ describe books_by_author;
 desc books_by_author;
 
 
-------------- Inert Records -------------
+------------- Insert Records -------------
 
 
 
