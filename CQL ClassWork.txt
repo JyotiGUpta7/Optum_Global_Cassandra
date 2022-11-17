@@ -186,6 +186,105 @@ and book_id=e56030a7-cd66-4c38-b508-27a14b23b7e8;
 select author_name, publish_year, book_name, email, rating from books_by_author;
 
 
+------------- CQL Datatypes (List) -------------
+// The list data type contains an ordered list of elements. By default, the values are stored 
+// in order of insertion and also duplicates are possible
+
+alter table books_by_author add
+phone_numbers list<text>;
+
+describe table books_by_author;
+
+update books_by_author set phone_numbers = ['1-800-000-9999']
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+
+select author_name, publish_year, phone_numbers from books_by_author;
+
+update books_by_author set phone_numbers = phone_numbers + ['1-080-011-8888']
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+
+select author_name, publish_year, phone_numbers from books_by_author;
+
+update books_by_author set phone_numbers[1] = '4-555-666-9999'
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+
+select author_name, publish_year, phone_numbers from books_by_author;
+
+delete phone_numbers[1] from books_by_author
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+// deleting by index number
+
+select author_name, publish_year, phone_numbers from books_by_author;
+
+update books_by_author set phone_numbers = phone_numbers + ['1-080-011-8888']
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+
+select author_name, publish_year, phone_numbers from books_by_author;
+
+update books_by_author set phone_numbers = phone_numbers - ['1-080-011-8888']
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+
+select author_name, publish_year, phone_numbers from books_by_author;
+
+update books_by_author set phone_numbers = []
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+// making the list emppty
+
+select author_name, publish_year, phone_numbers from books_by_author;
+
+
+------------- CQL Datatypes (Map) -------------
+// the map data type contains a collection of key-value pairs. Cqlsh returns the
+// elements in the sorted order of key content
+
+alter table books_by_author add family map<text, text>;
+
+describe table books_by_author;
+
+update books_by_author set family = {'wife':'Sanya', 'sibling':'John'}
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+
+select author_name, publish_year, family from books_by_author;
+
+update books_by_author set family = family + {'son':'Tim', 'daughter':'Jamie'}
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+
+select author_name, publish_year, family from books_by_author;
+
+update books_by_author set family = family - {'son'}
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+
+select author_name, publish_year, family from books_by_author;
+
+delete family['daughter'] from books_by_author
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+
+select author_name, publish_year, family from books_by_author;
+
+update books_by_author set family = {}
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+// making the map empty
+
+select author_name, publish_year, family from books_by_author;
+
+update books_by_author set family = {'son':'Tim', 'daughter':'Jamie'}
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+
+select author_name, publish_year, family from books_by_author;
+
 
 
 
