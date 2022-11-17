@@ -286,6 +286,57 @@ and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
 select author_name, publish_year, family from books_by_author;
 
 
+------------- CQL Datatypes (Tuple) -------------
+drop table emp_data;
+
+create table emp_data (
+	e_id int primary key,
+	e_salary int,
+	e_data tuple<int, text, int>
+);
+
+insert into emp_data (e_id, e_salary, e_data)
+values (501, 15000, (1, 'OK', 200));
+
+insert into emp_data (e_id, e_salary, e_data)
+values (502, 25000, (2, 'Test', 500));
+
+insert into emp_data (e_id, e_salary, e_data)
+values (503, 35000, (3, 'Final', 400));
+
+select * from emp_data;
+
+select * from emp_data
+where e_id = 502 and e_data = (2, 'Test', 500) allow filtering;
+
+select * from emp_data
+where e_data = (2, 'Test', 500) allow filtering;
+
+
+------------- CQL Datatypes (User Defined) -------------
+create type address (
+	street text,
+	city text,
+	state text,	
+	zip_code int
+);
+
+alter table books_by_author add addresses map<text, address>;
+// Error Code: InvalidRequest: Error from server: code=2200 [Invalid query] 
+// message="Non-frozen UDTs are not allowed inside collections: map<text, address>"
+
+alter table books_by_author add addresses map<text, frozen<address>>;
+
+update books_by_author set addresses = addresses +
+{'home': {street:'7712 E. Broadway', city: 'Tucson', state: 'AZ', zip_code: 85715}}
+where author_name = 'James Patterson' and publish_year = 2017
+and book_id = e56030a7-cd66-4c38-b508-27a14b23b7e8;
+
+select author_name, publish_year, addresses from books_by_author;
+
+
+------------- Create Secondary Index -------------
+
 
 
 
