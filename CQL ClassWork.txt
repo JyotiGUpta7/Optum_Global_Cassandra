@@ -39,7 +39,16 @@ desc books_by_author;
 
 
 ------------- Insert Records -------------
+insert into books_by_author (author_name, publish_year, book_id, book_name, rating)
+ values ('James Patterson', 2009, uuid(), 'Witch & Wizard', 4);
 
+insert into books_by_author (author_name, publish_year, book_id, book_name, rating)
+ values ('James Patterson', 2008, uuid(), 'Cross', 4.5);
+
+insert into books_by_author (author_name, publish_year, book_id, book_name, rating)
+ values ('James Patterson', 2018, uuid(), 'The President is Missing', 3.5);
+
+select * from books_by_author;
 
 
 
