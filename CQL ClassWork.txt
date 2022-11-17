@@ -10,6 +10,7 @@ help // to get all the command list for CQL editor
 
 clear // to clear the screen
 
+
 ------------- Create a Keyspace -------------
 create keyspace FirstKeyspace
  with replication = {'class':'SimpleStrategy',
@@ -20,6 +21,7 @@ describe keyspaces
 desc keyspaces;
 
 use firstkeyspace;
+
 
 ------------- Create a Table -------------
 create table books_by_author (
@@ -48,11 +50,31 @@ insert into books_by_author (author_name, publish_year, book_id, book_name, rati
 insert into books_by_author (author_name, publish_year, book_id, book_name, rating)
  values ('James Patterson', 2018, uuid(), 'The President is Missing', 3.5);
 
+
+------------- Select Records -------------
 select * from books_by_author;
 
+// due to publish_year DESC, so records are arranged in the order 2018, 2009, 2008
+// as we know that the primary key must be the part of the where clause for efficient query execution
+// but specifically, the partition key must be the part of the where clause. Otherwise, it will have 
+// to search all the nodes in the cluster
 
+select * from books_by_author
+ where author_name = 'James Patterson' and
+ publish_year < 2009;
 
+// in the above query the partition key author_name is in the where clause, so it will execute efficiently
 
+select * from books_by_author
+ where publish_year = 2009;
+
+// ERROR Code: InvalidRequest: Error from server: code=2200 [Invalid query] 
+// message="Cannot execute this query as it might involve data filtering and thus may have 
+// unpredictable performance. If you want to execute this query despite the performance 
+// unpredictability, use ALLOW FILTERING"
+
+select * from books_by_author
+ where publish_year = 2009 allow filtering;
 
 
 
