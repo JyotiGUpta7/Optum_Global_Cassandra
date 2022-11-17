@@ -1,0 +1,42 @@
+ -- this is a comment line in CQL editor
+
+// this is another way to write comment line in CQL editor
+
+/* This is the way
+   to write multi-line
+   comment in CQL editor */
+
+help // to get all the command list for CQL editor
+
+clear // to clear the screen
+
+------------- Create a Keyspace -------------
+create keyspace FirstKeyspace
+ with replication = {'class':'SimpleStrategy',
+ 'replication_factor':'1'};
+
+describe keyspaces
+
+desc keyspaces;
+
+use firstkeyspace;
+
+------------- Create a Table -------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
