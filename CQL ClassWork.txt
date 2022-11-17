@@ -336,6 +336,69 @@ select author_name, publish_year, addresses from books_by_author;
 
 
 ------------- Create Secondary Index -------------
+select * from emp_data;
+
+select * from emp_data where e_data =  (2, 'Test', 500);
+// produces error message as e_data is not the part of primary key
+
+select * from emp_data where e_data =  (2, 'Test', 500) allow filtering;
+
+create index on emp_data(e_data);
+
+select * from emp_data where e_data =  (2, 'Test', 500);
+
+
+------------- Cql Inbuilt Functions -------------
+select max(e_salary), min(e_salary), sum(e_salary), count(e_salary), avg(e_salary)
+from emp_data;
+
+
+------------- Importing Data from CSV File -------------
+create table student_data (
+	s_id int primary key,
+	s_name text,	
+	s_sub1 int,
+	s_sub2 int,
+	s_sub3 int,
+	s_sub4 int
+);
+
+// create a csv file against name student_details.csv with the following content
+Roll,Name,Sub1,Sub2,Sub3,Sub4
+1,Amit,10,20,30,40
+2,Amal,11,22,33,44
+3,Anu,34,45,56,67
+
+copy student_data(s_id,s_name,s_sub1,s_sub2,s_sub3,s_sub4)
+from 'C:\Users\Administrator\Desktop\student_details.csv'
+with header = true;
+
+select * from student_data;
+
+select s_id, s_name, s_sub1, s_sub2, s_sub3, s_sub4 from student_data;
+
+truncate table student_data;
+
+select s_id, s_name, s_sub1, s_sub2, s_sub3, s_sub4 from student_data;
+
+copy student_data(s_id,s_name,s_sub1,s_sub2,s_sub3,s_sub4)
+from 'C:\Users\Administrator\Desktop\student_details.csv'
+with header = false;
+
+select s_id, s_name, s_sub1, s_sub2, s_sub3, s_sub4 from student_data;
+
+//exporting rows from the Cassandra table to csv file
+copy student_data (s_id, s_name, s_sub1, s_sub2, s_sub3, s_sub4)
+to 'C:\Users\Administrator\Desktop\student_details1.csv' with header = true;
+
+// taking inputs from the user keyboard input
+copy student_data from stdin;
+// give inputs link: 111,Titas,40,50,60,70
+// To terminate in the next line give '.'
+
+drop table student_data;
+drop keyspace firstkeyspace;
+
 
 
 
