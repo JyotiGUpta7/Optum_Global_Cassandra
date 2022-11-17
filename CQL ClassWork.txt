@@ -75,6 +75,36 @@ select * from books_by_author
 
 select * from books_by_author
  where publish_year = 2009 allow filtering;
+// now it will provide us the output in a very slow and in a very inefficient way
+
+// as clustering keys are sorted so we can use the rage queries on them
+select * from books_by_author
+ where author_name = 'James Patterson' and
+ publish_year > 2008 and publish_year < 2018;
+
+
+select * from books_by_author
+ where author_name = 'James Patterson' and
+ publish_year < 2009 and rating > 4;
+
+// Error Code: InvalidRequest: Error from server: code=2200 [Invalid query] 
+// message="Cannot execute this query as it might involve data filtering and 
+// thus may have unpredictable performance. If you want to execute this query 
+// despite the performance unpredictability, use ALLOW FILTERING"
+
+// in the above query as rating is not the part of the clustering key, so again causing error
+
+select * from books_by_author
+ where author_name = 'James Patterson' and
+ publish_year < 2009 and rating > 4
+ allow filtering;
+
+// will produce the desired answer in an inefficient way as rating is not the part of the clustering 
+// key. So it will have to sort all the records in the machine again to generate the required result.
+
+
+
+
 
 
 
