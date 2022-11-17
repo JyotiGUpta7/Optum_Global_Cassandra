@@ -102,14 +102,33 @@ select * from books_by_author
 // will produce the desired answer in an inefficient way as rating is not the part of the clustering 
 // key. So it will have to sort all the records in the machine again to generate the required result.
 
+------------- CQL Datatypes (UUID) -------------
+
+insert into books_by_author (author_name, publish_year, book_id, book_name, rating)
+ values ('James Patterson', 2017, uuid(), 'Manning', 4.0);
+
+// here we are using the convenience function uuid() against the attribute book_id
+// this uuid value is 128 bit (32 hexadecimal digits) unique identification number
+
+select * from books_by_author where author_name = 'James Patterson';
+// listing all the records of the table
+
+select * from books_by_author where author_name = 'James patterson';
+// no record will be selected as the author name is not in the proper case
 
 
+------------- CQL Datatypes (TimeUUID) -------------
+alter table books_by_author add book_timeuuid timeuuid;
 
+desc books_by_author;
 
+insert into books_by_author
+ (author_name, publish_year, book_id, book_timeuuid, book_name, rating)
+ values ('Tony', 2017, uuid(), now(), 'Crust', 4.0);
 
+select * from books_by_author where author_name = 'Tony';
 
-
-
+select * from books_by_author;
 
 
 
